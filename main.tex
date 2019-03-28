@@ -1,0 +1,623 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{eepic}
+\usepackage{nicefrac}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{esvect}
+
+\usepackage{tikzsymbols}
+
+% useful
+\newcommand{\ignore}[1]{}
+
+% complex stuff
+\newcommand{\ann}{\operatorname{ann}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Orb}{\operatorname{Orb}}
+
+% reals
+\newcommand{\esssup}{\operatorname{ess~sup}}
+\newcommand{\essran}{\operatorname{essran}}
+\newcommand{\innprod}[2]{\langle #1 | #2 \rangle}
+\newcommand{\linnprod}[2]{\langle #1 , #2 \rangle}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Nul}{\operatorname{Nul}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\abs}[1]{\left\lvert {#1} \right\rvert}
+\newcommand{\norm}[1]{\left\lVert {#1} \right\rVert}
+\newcommand{\sabs}[1]{\lvert {#1} \rvert}
+\newcommand{\snorm}[1]{\lVert {#1} \rVert}
+
+% sets (some)
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\D}{{\mathbb{D}}}
+\newcommand{\F}{{\mathbb{F}}}
+
+% consistent
+\newcommand{\bB}{{\mathbb{B}}}
+\newcommand{\bC}{{\mathbb{C}}}
+\newcommand{\bR}{{\mathbb{R}}}
+\newcommand{\bZ}{{\mathbb{Z}}}
+\newcommand{\bN}{{\mathbb{N}}}
+\newcommand{\bQ}{{\mathbb{Q}}}
+\newcommand{\bD}{{\mathbb{D}}}
+\newcommand{\bF}{{\mathbb{F}}}
+\newcommand{\bH}{{\mathbb{H}}}
+\newcommand{\bO}{{\mathbb{O}}}
+\newcommand{\bK}{{\mathbb{K}}}
+\newcommand{\CP}{{\mathbb{CP}}}
+\newcommand{\RP}{{\mathbb{RP}}}
+\newcommand{\HP}{{\mathbb{HP}}}
+\newcommand{\OP}{{\mathbb{OP}}}
+\newcommand{\sA}{{\mathcal{A}}}
+\newcommand{\sB}{{\mathcal{B}}}
+\newcommand{\sF}{{\mathcal{F}}}
+\newcommand{\sG}{{\mathcal{G}}}
+\newcommand{\sH}{{\mathcal{H}}}
+\newcommand{\sM}{{\mathcal{M}}}
+\newcommand{\sO}{{\mathcal{O}}}
+\newcommand{\sP}{{\mathcal{P}}}
+\newcommand{\sS}{{\mathcal{S}}}
+\newcommand{\sI}{{\mathcal{I}}}
+\newcommand{\sL}{{\mathcal{L}}}
+\newcommand{\sK}{{\mathcal{K}}}
+\newcommand{\sU}{{\mathcal{U}}}
+\newcommand{\sV}{{\mathcal{V}}}
+\newcommand{\sX}{{\mathcal{X}}}
+\newcommand{\sY}{{\mathcal{Y}}}
+\newcommand{\sZ}{{\mathcal{Z}}}
+
+\newcommand{\interior}{\operatorname{int}}
+
+% Topo stuff
+\newcommand{\id}{\textit{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Torsion}{\operatorname{Torsion}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+
+%extra thingies
+\newcommand{\mapsfrom}{\ensuremath{\text{\reflectbox{$\mapsto$}}}}
+\newcommand{\from}{\ensuremath{\leftarrow}}
+\newcommand{\dhat}[1]{\hat{\hat{#1}}}
+
+\newcommand{\veci}{\hat{\imath}}
+\newcommand{\vecj}{\hat{\jmath}}
+\newcommand{\veck}{\hat{k}}
+
+\begin{document}
+
+\title{Calculus III Refresher for Vector Calculus}
+\author{Ji\v{r}\'\i{} Lebl}
+
+\maketitle
+
+
+This class, Vector Calculus, is really the vector calculus that you haven't
+really gotten to in Calculus III.
+We will be using the book:
+
+\medskip
+
+\noindent
+H.\ M.\ Schey,
+\emph{Div, Grad, Curl, and All That: An Informal Text on Vector Calculus} (Fourth Edition)
+
+\medskip
+
+Let us start with a very quick review of the concepts
+from Calculus III that we will
+need and that are not covered in Schey---a crash course if you will.
+We won't cover nearly everything that you may have seen in Calculus III in this quick overview,
+just the very basics.  We will also go over a couple of things that you may not have seen
+in Calculus III, but that we will need for this class.
+You should look back at your Calculus III textbook.  If you no longer have that or need another source, there is a wonderful free textbook:
+
+\medskip
+
+\noindent
+Gregory Hartman, \emph{APEX Calculus}, \url{http://www.apexcalculus.com}.  You can download a PDF online, or buy a very cheap printed copy.  Especially Volume 3, that is, chapters 9--14.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Vectors}
+
+In calculus, one deals with $\R$, the real numbers, a one-dimensional space, or the \emph{line}.
+In vector calculus, we consider the two dimensional cartesian space $\R^2$,
+the \emph{plane};
+three dimensional space $\R^3$; and in general the $n$-dimensional cartesian space $\R^n$.
+A \emph{point} in $\R^2, \R^3$, or $\R^n$ is simply a tuple,
+a 3-tuple, or an $n$-tuple (respectively) of real numbers.
+For example, the following are points in $\R^2$
+$$
+(1,-2), \qquad (0,1), \qquad (-1,10), \qquad \text{etc.}
+$$
+The following are points in $\R^3$
+$$
+(1,-2,3), \qquad (0,0,1), \qquad (-1,-1,10), \qquad \text{etc.}
+$$
+Of course, $\R^n$ can be $\R^2$ or $\R^3$, and even $\R = \R^1$, as $n$ can always be
+1, 2, or 3.
+The coordinates used in calculus are $x$ for $\R$, then $(x,y)$ for $\R^2$, and $(x,y,z)$
+for $\R^3$.
+In general in $\R^n$, we run out of letters so generally use something like
+subscripts $(x_1,x_2,\ldots,x_n)$.  But other letters are sometimes used.
+We mostly focus on $\R^3$ (and $\R^2$ to some extent) in this course.
+
+Now that we have points, another object is a \emph{vector}.
+When we talk about vectors, we wish to give them names.  People use
+$\vv{v}$ or $\mathbf{v}$, although mathematicians often just write $v$ and simply remember
+that $v$ is a vector.
+On the board I write $\vv{v}$ although the book uses $\mathbf{v}$
+(it is difficult to write bold on the board \Smiley{}).
+A vector is an object that describes a \emph{direction} and a \emph{magnitude}.
+It is simply an arrow in space,
+although it does not really care as to where the arrow starts,
+it only cares about its direction and its magnitude.
+The best way to think about it is thinking of a moving particle in space.
+A \emph{point} describes the position of a particle,
+while a \emph{vector} describes velocity, that is, the direction the object is traveling, and its speed.
+Forces and displacements are also described by vectors.
+A vector can say how to go from point $A$ to point $B$
+(start at $A$ in this direction and go this far to get to $B$).
+Such a vector is written $\vv{AB}$.
+
+A space $\R^n$ has one special point $O = (0,0,\ldots,0)$, the \emph{origin}.
+We can describe a vector $\vv{v}$ via a point $A$ in space if the vector describes the
+displacement from $O$ to $A$, so $\vv{v} = \vv{OA}$.
+Then we say $\vv{v}$ is the \emph{position vector} of $A$.
+This means that a vector can be described by 3 numbers just like a point.
+We don't necessarily want to use the same notation as for points, to distinguish
+a common notation for vectors is
+$$
+\langle a,b,c \rangle ,
+$$
+which is the position vector of the point $(a,b,c)$ in $\R^3$.
+Even though both point and vector are represented by 3 numbers in $\R^3$,
+we distinguish them.
+As far as computations are concerned,
+they are often just 3 numbers, but they are different things.
+Just like say temperature and speed are two very different
+things, which they are described by a single number.  And we don't want to
+confuse speed and temperature.
+
+The analogue of the origin is the zero vector $\vv{0}$, for example,
+$$
+\vv{0} = \langle 0,0,0 \rangle
+$$
+in $\R^3$.
+It is the single vector which does not have a well-defined direction,
+and has a zero magnitude.
+If you go distance zero, then it doesn't matter in which direction
+you traveled.
+
+There are a certain number of special vectors called the
+\emph{standard basis vectors}.
+In $\R^2$ and $\R^3$ they have special names.
+In $\R^2$:
+$$
+\veci = \langle 1 , 0 \rangle, \qquad
+\vecj = \langle 0 , 1 \rangle.
+$$
+In $\R^3$:
+$$
+\veci = \langle 1, 0, 0 \rangle, \qquad
+\vecj = \langle 0, 1, 0 \rangle, \qquad
+\veck = \langle 0, 0, 1 \rangle
+$$
+Why are hats used instead of arrows above the ijk? Because these vectors are
+unit vectors, that is vectors of magnitude 1, and it is common to write a hat instead of
+arrow for such vectors (see also below)
+Hats are more common than arrows if you can't have bold for these vectors.
+
+The convenient way to write vectors is using the standard basis.
+That is, in $\R^2$ write,
+$$
+\langle a,b \rangle = a \veci + b \vecj,
+\qquad \text{e.g.} \quad
+\langle 3,4 \rangle = 3 \veci + 4 \vecj.
+$$
+In $\R^3$ write,
+$$
+\langle a,b,c \rangle = a \veci + b \vecj + c \veck,
+\qquad \text{e.g.} \quad
+\langle 3,4,-2 \rangle = 3 \veci + 4 \vecj - 2 \veck.
+$$
+
+We also allow arithmetic with vectors.
+First, scalar multiplication.
+Real numbers are called \emph{scalars} when vectors are around,
+because they are used to ``scale'' the vectors.
+If $\alpha$ is a scalar and $\vv{v}$
+is a vector then the product $\alpha\vv{v}$ is the vector with the same direction as
+$\vv{v}$ (as long as $\alpha \geq 0$) and magnitude multiplied by $\alpha$.
+if $\alpha < 0$, then the direction is reversed and the magnitude is multiplied by
+$\sabs{\alpha}$.
+It turns out that
+$$
+\alpha ( a \veci + b \vecj + c \veck ) =
+\alpha a \veci + \alpha b \vecj + \alpha c \veck
+\qquad \text{e.g.} \quad
+2 ( 3 \veci + 4 \vecj - 2 \veck ) =
+6 \veci + 8 \vecj - 4 \veck
+.
+$$
+We can also add vectors.
+Vector addition is defined by using the displacement interpretation of vectors.
+If $\vv{v}$ and $\vv{w}$ are vectors
+then $\vv{v}+\vv{w}$ is the vector where we travel along $\vv{v}$ first
+and then along $\vv{w}$.
+It turns out that
+$$
+( a \veci + b \vecj + c \veck ) +
+( d \veci + e \vecj + f \veck ) =
+(a+d) \veci + (b+e) \vecj + (c+f) \veck
+$$
+e.g.
+$$
+( \veci + 2 \vecj + 3 \veck ) +
+( 5 \veci + \vecj - 3 \veck ) =
+6 \veci + 2 \vecj + 0 \veck = 6 \veci + 2 \vecj
+.
+$$
+
+We write the magnitude of $\vv{v}$ as
+$\sabs{\vv{v}}$.
+The following formulas compute the magnitude of a vector.
+In $\R^2$:
+$$
+\sabs{a \veci + b \vecj}
+=
+\sqrt{a^2+b^2}
+$$
+and in $\R^3$:
+$$
+\sabs{a \veci + b \vecj + c \veck}
+=
+\sqrt{a^2+b^2+c^2}
+$$
+Sometimes when given a vector $\vv{r}$, its magnitude is written as simply $r$.
+You may have seen $\snorm{\vec{v}}$ for magnitude.  It is the same thing, we will use
+single bars in this course to match with our book.
+
+The direction of $\vv{v}$ written $\hat{v}$ is then
+the vector
+$$
+\hat{v} = \frac{1}{\sabs{\vv{v}}} \vv{v} = \frac{\vv{v}}{\sabs{\vv{v}}} .
+$$
+Although we'll try to state explicitly that $\hat{v}$  is the direction of $\vv{v}$.
+Notice again that we put a hat instead of an arrow on unit vectors.  It is relatively
+common to use $\hat{v}$ for a unit vector skipping writing $\vv{v}$ altogether.
+
+All of these notions are generalized to $\R^n$ in the obvious manner.
+Higher number of dimensions do occur naturally.
+For example, if $t$ is time, then time-space can have the coordinates $(x,y,z,t)$,
+that is $\R^4$.  Similarly, the space of all configurations of two particles in 3-space
+is really $\R^6$, that is $(x_1,y_1,z_1,x_2,y_2,z_2)$, where
+$(x_1,y_1,z_1)$, is the position of the first particle and $(x_2,y_2,z_2)$ is
+the position of the second.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Products of vectors}
+
+We saw one product, that is product of a scalar and a vector
+$$
+\alpha \vv{v}
+$$
+
+Another type of product is the so called \emph{dot product}
+$$
+( a \veci + b \vecj + c \veck ) \cdot
+( d \veci + e \vecj + f \veck ) =
+ad + be + cf .
+$$
+E.g.
+$$
+( 3 \veci + \vecj -2 \veck ) \cdot
+( - 2\veci + 5 \vecj + \veck ) =
+-6 + 5 -2 = -3 .
+$$
+This product is easy to generalize to any number of dimensions in the obvious way.
+Notice that the result of this product is a scalar and not a vector.
+For this reason it is sometimes called the scalar product.
+Notice also that
+$$
+\sabs{\vv{v}}^2 = \vv{v} \cdot \vv{v} .
+$$
+Geometrically in $\R^2$ or $\R^3$, this product is
+$$
+\vv{v} \cdot \vv{w} = \sabs{\vv{v}} \sabs{\vv{w}} \cos \theta ,
+$$
+where $\theta$ is the angle between $\vv{v}$ and $\vv{w}$.
+So the dot product can be used to compute the angle.
+We saw that it also computes the magnitude.
+Note that it doesn't matter if you think of the angle
+between $\vv{v}$ and $\vv{w}$ or vice-versa, as we are taking the cosine here.
+Also there are two ways you could define the angle depending which direction you start in,
+but because of the cosine you get the same dot product.
+Two vectors are orthogonal
+(at right angle, perpendicular) if their dot product is zero.
+
+The dot product is bilinear (if something is called a product, usually people want it to be bilinear):
+$$
+( \alpha \vv{v} + \beta \vv{w} ) \cdot \vv{u}
+\alpha (\vv{v} \cdot \vv{u}) + \beta (\vv{w} \cdot \vv{u})
+$$
+and
+$$
+\vv{u} \cdot
+( \alpha \vv{v} + \beta \vv{w} )
+=
+\alpha (\vv{u} \cdot \vv{v}) + \beta (\vv{u} \cdot \vv{w})
+$$
+It is also commutative (not all products are commutative):
+$$
+\vv{v} \cdot \vv{w} = \vv{w} \cdot \vv{v} .
+$$
+
+Another type of product which really only exists in $\R^3$ is the so called
+\emph{cross product},
+or sometimes the \emph{vector product}.
+This product results in a vector.
+Geometrically
+$$
+\vv{v} \times \vv{w} = \sabs{\vv{v}} \sabs{\vv{w}} (\sin \theta) \hat{n}
+$$
+Where $\theta$ is the angle going from $\vv{v}$ to $\vv{w}$ in the plane spanned by them
+(now the order matters),
+and $\hat{n}$ is the normal vector to that plane oriented according to the right hand rule.
+The orientation can be figured out from the formula
+$$
+\veci \times \vecj = \veck .
+$$
+That is $\veck$ is the normal vector to the $xy$-plane using the right hand rule.
+
+There are a bunch of ways to compute the cross product, though perhaps the easiest to remember
+is using algebra.
+First, the cross product is bilinear:
+$$
+( \alpha \vv{v} + \beta \vv{w} ) \times \vv{u}
+=
+\alpha (\vv{v} \times \vv{u}) + \beta (\vv{w} \times \vv{u})
+$$
+and
+$$
+\vv{u} \times
+( \alpha \vv{v} + \beta \vv{w} )
+=
+\alpha (\vv{u} \cdot \vv{v}) + \beta (\vv{u} \times \vv{w}) .
+$$
+And also anti-commutative:
+$$
+\vv{v} \times \vv{w} = - \vv{w} \times \vv{v} .
+$$
+From this we find
+$$
+\vv{v} \times \vv{v} = \vv{0} .
+$$
+And finally we use the identities:
+$$
+\veci \times \vecj = \veck , \qquad
+\vecj \times \veck = \veci , \qquad
+\veck \times \veci = \vecj .
+$$
+All three identities list $\veci$, $\vecj$, $\veck$ in the same order.
+If you go in the opposite order you get a minus sign.
+
+Example:
+$$
+(3 \veci + \veck) \times (\vecj + 2 \veck)
+=
+3 \veci \times \vecj + (3 \cdot 2) \veci \times \veck
++
+\veck \times \vecj + 2 \veck \times \veck
+=
+3 \veck + 6 ( - \vecj)
++
+(-\veci) + 2 \vv{0}
+=
+-\veci - 6\vecj + 3 \veck .
+$$
+
+A very important property of the cross product is that it is orthogonal
+to both of the vectors.
+In terms of the dot product:
+$$
+\vv{v} \cdot (\vv{v} \times \vv{w}) = 0 , \qquad
+\vv{w} \cdot (\vv{v} \times \vv{w}) = 0 .
+$$
+It is a useful easy to compute way to find the orthogonal vector to a plane.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Functions and partial derivatives}
+
+A function is simply an assignment of inputs to some output.
+A function of 3 real variables can be written as
+$$
+w = f(x,y,z)
+$$
+That is, given numbers $x$, $y$, and $z$, the function $f$ returns the number $f(x,y,z)$.
+For example, the temperature in a room where $x$, $y$, $z$ are some coordinates on the room,
+then the temperature $T(x,y,z)$ is a function.  Sometimes this is called a
+``scalar function'' or a ``scalar field.''
+
+If we keep $y$ and $z$ fixed, then the assignment that takes $x$ to $f(x,y,z)$ is a
+function of one variable.
+Its derivative is the so-called \emph{partial derivative} with respect to $x$,
+written $\frac{\partial f}{\partial x}$.  That is
+$$
+\frac{\partial f}{\partial x}(x,y,z) = \lim_{h\to 0} \frac{f(x+h,y,z)-f(x,y,z)}{h}
+$$
+We will not use the notation $f_x$ in this course for the partial derivative as
+it may get confusing;
+we reserve the subscript for another concept.
+Similarly
+$\frac{\partial f}{\partial y}$,
+$\frac{\partial f}{\partial z}$ and so on.  These partial derivatives are again
+functions of $\R^3$.
+
+To compute partials we simply consider all other variables constant.
+For example, if $f(x,y,z) = x^2yz + xy + z$ then
+$$
+\frac{\partial f}{\partial x}(x,y,z) = 2xyz + y,
+\qquad
+\frac{\partial f}{\partial y}(x,y,z) = x^2z + x,
+\qquad \text{and} \qquad
+\frac{\partial f}{\partial z}(x,y,z) = x^2y + 1 .
+$$
+As these are functions we may take the derivative again.  Let us show a couple of examples,
+$$
+\frac{\partial^2 f}{\partial x \partial y}(x,y,z) = 2xz + 1,
+\qquad \text{and} \qquad
+\frac{\partial^2 f}{\partial x^2}(x,y,z) = 2yz .
+$$
+
+The generalization to $n$ variables is similar.  E.g.,
+if $f(x_1,x_2,x_3,x_4) = x_1^2x_2x_3 + x_2 x_4$ then
+$$
+\frac{\partial f}{\partial x_1}(x_1,x_2,x_3,x_4) = 2x_1 x_2 x_3,
+\qquad \text{or} \qquad
+\frac{\partial f}{\partial x_2}(x_1,x_2,x_3,x_4) = x_1^2 x_3 + x_4
+$$
+
+\section{Multiple integrals}
+
+In the plane the area of a small rectangle with sides $\Delta x$ and $\Delta y$
+is of area $\Delta A = \Delta x \Delta y$.
+Then if we build a box of height $c$ above
+this small rectangle, the volume of the box is $c \Delta x \Delta y = c \Delta A$.
+
+Let $R = [a,b] \times [c,d]$ be a rectangle in $\R^2$.  That is, all the points
+$(x,y)$ such that $a \leq x \leq b$ and $c \leq y \leq d$.
+We divide $R$ into a bunch of rectangles of area $\Delta A = \Delta x \Delta y$.
+In each of these rectangles we pick a point $(x_j,y_j)$ and then
+$$
+f(x_j,y_j) \Delta A
+$$
+is a reasonable approximation for the volume under the graph of $f$ above the little
+rectangle.
+We sum all these approximations
+$$
+\sum_j 
+f(x_j,y_j) \Delta A ,
+$$
+which is a reasonable approximation for the volume under the graph of $f$ above the rectangle
+$R$.
+Taking limit as $\Delta x$ and $\Delta y$ go to zero and therefore $\Delta A$ goes to zero
+we find the limit
+$$
+\iint_R f(x,y) \, dA
+$$
+which we call the double integral of $f$ over $R$.
+For a reasonable function (such as continuous), this limit exists.
+The sum can be done column-wise or row-wise, in which case we have a
+double sum, and taking the limits we find that
+$$
+\iint_R f(x,y) \, dA
+=
+\int_c^d \int_a^b f(x,y) \, dx \, dy
+=
+\int_a^b \int_c^d f(x,y) \, dy \, dx .
+$$
+Notice the units of this quantity.  It is the units of $f$ times the units of $x$ times
+the units of $y$.  So for example if all three are meters, then the units of $dA$ is $m^2$ and
+the units of
+$f(x,y) \, dA$
+and therefore
+$\iint_R f(x,y) \, dA$
+is $m^3$ or volume.
+
+For example,
+$$
+\iint_R dA = A(R) = (b-a)(d-c) .
+$$
+Here $A(R)$ is the area of of $R$.  Another example:  Let $R = [0,1] \times [0,1]$
+$$
+\iint_R xy\, dA =
+\int_0^1 \int_0^1 xy \, dx \, dy
+=
+\int_0^1 \frac{1}{2} y \, dy
+= \frac{1}{4}.
+$$
+
+Similarly in $\R^3$, a little box of sides $\Delta x$, $\Delta y$, $\Delta z$
+is of volume $\Delta V = \Delta x \Delta y \Delta z$.  
+Let $B = [a,b] \times [c,d] \times [e,f]$.
+We follow the same procedure above to find for a function $f(x,y,z)$
+$$
+\iiint_B f(x,y,z) \, dV
+=
+\int_e^f \int_c^d \int_a^b f(x,y,z) \, dx \, dy \, dz .
+$$
+All the other orderings of $dx$, $dy$, and $dz$ also work.
+Notice the units.  If all dimensions are in meters, then
+$\iiint_B f(x,y) \, dV$ is in units $m^4$, or 4-dimensional volume.
+
+Sometimes we might just write
+$$
+\iiint_B f \, dV
+$$
+for simplicity.
+
+We could generalize this further, given $f(x_1,\ldots,x_n)$ on $\R^n$, we start with
+the $n$ dimensional volume element $dV_n$ or just $dV$, we integrate $f$, and obtain
+$n+1$ dimensional volume ``under the graph.''
+Mathematicians sometimes do not make distinction for $n=1$ and $n=2$, and simply call
+everything ``volume,' so 1 dimensional volume is simply length, 2 dimensional volume is
+area, etc.
+Mathematicians also often do not use $\iint$ and $\iiint$,
+and so on and simply use $\int$,
+as we all know in what dimension we are integrating based on the nature of
+the element $dV$ or $dA$ or whatnot.
+
+The integral is additive, that is if $B$ is the disjoint union of $B_1$ and $B_2$,
+then
+$$
+\iiint_B f \, dV = 
+\iiint_{B_1} f \, dV +
+\iiint_{B_2} f \, dV .
+$$
+
+Also the integral is linear, that is if $\alpha, \beta$ are real numbers and
+$f$ and $g$ are functions then
+$$
+\iiint_B \alpha f + \beta g \, dV = 
+\alpha \iiint_B f \, dV +
+\beta \iiint_B g \, dV .
+$$
+
+Understanding the above development of the integral is important
+in applications for recognizing quantities computed by integration.
+In fact, because calculus is
+so powerful, sometimes the approximation goes the other way.
+Instead of the sum being an approximation for the integral, the integral can be
+computed to approximate a sum.
+In some sense this is always the case, as our world is
+really composed on tiny bits rather than continuous unbroken things.
+But adding up a finite but large number of bits tends to be far harder to do than
+``adding up infinitely many,'' that is, integrating.
+A recurring theme in mathematics is that by making a problem more complicated
+(in just the right way), we make an impossible-to-solve problem
+into a tractable, solvable problem.
+
+\end{document}
