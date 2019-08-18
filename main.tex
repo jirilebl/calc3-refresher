@@ -174,7 +174,7 @@ that $v$ is a vector.
 On the board I write $\vv{v}$ although the book uses $\mathbf{v}$
 (it is difficult to write bold on the board \Smiley{}).
 The book also uses $\mathbf{\hat{v}}$ for unit vectors, that is,
-vectors of magnitude one.
+vectors of magnitude one.  We will write $\hat{v}$.
 
 The best way to think about it is thinking of a moving particle in space.
 A \emph{point} describes the position of a particle,
@@ -195,7 +195,7 @@ $$
 \langle a,b,c \rangle ,
 $$
 which is the position vector of the point $(a,b,c)$ in $\R^3$.
-Even though both point and vector are represented by 3 numbers in $\R^3$,
+Even though both points and vectors are represented by 3 numbers in $\R^3$,
 we distinguish them.
 As far as computations are concerned,
 they are often just 3 numbers, but they are different things.
@@ -227,10 +227,9 @@ $$
 \vecj = \langle 0, 1, 0 \rangle, \qquad
 \veck = \langle 0, 0, 1 \rangle
 $$
-Why are hats used instead of arrows above the ijk? Because these vectors are
-unit vectors, that is vectors of magnitude 1, and it is common to write a hat instead of
-arrow for such vectors (see also below)
-Hats are more common than arrows if you can't have bold for these vectors.
+We use hats instead of arrows above the ijk,
+because these vectors are
+unit vectors, that is vectors of magnitude 1.
 
 The convenient way to write vectors is using the standard basis.
 That is, in $\R^2$ write,
@@ -253,7 +252,7 @@ because they are used to ``scale'' the vectors.
 If $\alpha$ is a scalar and $\vv{v}$
 is a vector then the product $\alpha\vv{v}$ is the vector with the same direction as
 $\vv{v}$ (as long as $\alpha \geq 0$) and magnitude multiplied by $\alpha$.
-if $\alpha < 0$, then the direction is reversed and the magnitude is multiplied by
+If $\alpha < 0$, then the direction is reversed and the magnitude is multiplied by
 $\sabs{\alpha}$.
 It turns out that
 $$
@@ -299,8 +298,10 @@ $$
 \sqrt{a^2+b^2+c^2}
 $$
 Sometimes when given a vector $\vv{r}$, its magnitude is written as simply $r$.
-You may have seen $\snorm{\vec{v}}$ for magnitude.  It is the same thing, we will use
-single bars in this course to match with our book.
+You may have seen $\snorm{\vec{v}}$ for magnitude. 
+It is the same thing.
+We will use single bars in this course to
+match the book.
 
 The direction of $\vv{v}$ written $\hat{v}$ is then
 the vector
@@ -318,17 +319,25 @@ that is $\R^4$.  Similarly, the space of all configurations of two particles in 
 is really $\R^6$, that is $(x_1,y_1,z_1,x_2,y_2,z_2)$, where
 $(x_1,y_1,z_1)$, is the position of the first particle and $(x_2,y_2,z_2)$ is
 the position of the second.
+Similarly to the space of possible
+position--velocity configurations (phase space)
+of a single particle has 6 dimensions
+(3 dimensions for position and 3 for velocity).
+And if we are modeling liquid by pretending it
+is a 1000 particles (liquid, after all,
+is a whole bunch of particles),
+then the phase space has dimensionn 6000.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Products of vectors}
 
-We saw one product, that is product of a scalar and a vector
+We saw one product, that is product of a scalar and a vector:
 $$
-\alpha \vv{v}
+\alpha \vv{v}.
 $$
 
-Another type of product is the so called \emph{dot product}
+Another type of product is the so-called \emph{dot product}
 $$
 ( a \veci + b \vecj + c \veck ) \cdot
 ( d \veci + e \vecj + f \veck ) =
@@ -343,7 +352,7 @@ $$
 This product is easy to generalize to any number of dimensions in the obvious way.
 Notice that the result of this product is a scalar and not a vector.
 For this reason it is sometimes called the scalar product.
-Notice also that
+The dot product can compute the magnitude of a vector:
 $$
 \sabs{\vv{v}}^2 = \vv{v} \cdot \vv{v} .
 $$
@@ -353,10 +362,9 @@ $$
 $$
 where $\theta$ is the angle between $\vv{v}$ and $\vv{w}$.
 So the dot product can be used to compute the angle.
-We saw that it also computes the magnitude.
-Note that it doesn't matter if you think of the angle
+It doesn't matter if you think of the angle
 between $\vv{v}$ and $\vv{w}$ or vice-versa, as we are taking the cosine here.
-Also there are two ways you could define the angle depending which direction you start in,
+Also, there are two ways you could define the angle depending which direction you start in,
 but because of the cosine you get the same dot product.
 Two vectors are orthogonal
 (at right angle, perpendicular) if their dot product is zero.
@@ -371,16 +379,16 @@ $$
 \vv{u} \cdot
 ( \alpha \vv{v} + \beta \vv{w} )
 =
-\alpha (\vv{u} \cdot \vv{v}) + \beta (\vv{u} \cdot \vv{w})
+\alpha (\vv{u} \cdot \vv{v}) + \beta (\vv{u} \cdot \vv{w}) .
 $$
 It is also commutative (not all products are commutative):
 $$
 \vv{v} \cdot \vv{w} = \vv{w} \cdot \vv{v} .
 $$
 
-Another type of product which really only exists in $\R^3$ is the so called
+Another type of product which really only exists in $\R^3$ is the
 \emph{cross product},
-or sometimes the \emph{vector product}.
+sometimes called the \emph{vector product}.
 This product results in a vector.
 Geometrically
 $$
@@ -408,9 +416,9 @@ $$
 \vv{u} \times
 ( \alpha \vv{v} + \beta \vv{w} )
 =
-\alpha (\vv{u} \cdot \vv{v}) + \beta (\vv{u} \times \vv{w}) .
+\alpha (\vv{u} \times \vv{v}) + \beta (\vv{u} \times \vv{w}) .
 $$
-And also anti-commutative:
+It is anti-commutative:
 $$
 \vv{v} \times \vv{w} = - \vv{w} \times \vv{v} .
 $$
@@ -418,14 +426,19 @@ From this we find
 $$
 \vv{v} \times \vv{v} = \vv{0} .
 $$
-And finally we use the identities:
+To compute the product we can use the identities:
 $$
 \veci \times \vecj = \veck , \qquad
 \vecj \times \veck = \veci , \qquad
 \veck \times \veci = \vecj .
 $$
 All three identities list $\veci$, $\vecj$, $\veck$ in the same order.
-If you go in the opposite order you get a minus sign.
+If you go in the opposite order you get a minus sign:
+$$
+\vecj \times \veci = -\veck , \qquad
+\veck \times \vecj = -\veci , \qquad
+\veci \times \veck = -\vecj .
+$$
 
 Example:
 $$
@@ -450,6 +463,32 @@ $$
 \vv{w} \cdot (\vv{v} \times \vv{w}) = 0 .
 $$
 It is a useful easy to compute way to find the orthogonal vector to a plane.
+For example, as we computed above
+$(3 \veci + \veck) \times (\vecj + 2 \veck)
+=
+-\veci - 6\vecj + 3 \veck$, so
+$-\veci - 6\vecj + 3 \veck$ is orthogonal
+(at right angle) to 
+$3 \veci + \veck$ and also to
+$\vecj + 2 \veck$.
+
+A common mnemonic for computing the cross product
+is using the determinant formula:
+$$
+(a \veci + b \vecj + c \veck ) \times 
+(d \veci + e \vecj + f \veck ) =
+\det
+\begin{bmatrix}
+\veci & \vecj & \veck \\
+a & b & c \\
+d & e & f
+\end{bmatrix}
+=
+(bf-ce) \veci -
+(af-cd) \vecj +
+(ae-bd) \veck .
+$$
+(Do not forget the minus sign on the $\vecj$.)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -472,13 +511,14 @@ written $\frac{\partial f}{\partial x}$.  That is
 $$
 \frac{\partial f}{\partial x}(x,y,z) = \lim_{h\to 0} \frac{f(x+h,y,z)-f(x,y,z)}{h}
 $$
-We will not use the notation $f_x$ in this course for the partial derivative as
-it may get confusing;
-we reserve the subscript for another concept.
-Similarly
+Similarly we define
 $\frac{\partial f}{\partial y}$,
 $\frac{\partial f}{\partial z}$ and so on.  These partial derivatives are again
 functions of $\R^3$.
+We will not use the notation $f_x$ in this
+course for the partial derivative as
+it may get confusing;
+we reserve the subscript for another concept.
 
 To compute partials we simply consider all other variables constant.
 For example, if $f(x,y,z) = x^2yz + xy + z$ then
@@ -507,11 +547,11 @@ $$
 \section{Multiple integrals}
 
 In the plane the area of a small rectangle with sides $\Delta x$ and $\Delta y$
-is of area $\Delta A = \Delta x \Delta y$.
-Then if we build a box of height $c$ above
+is $\Delta A = \Delta x \Delta y$.
+If we build a box of height $c$ above
 this small rectangle, the volume of the box is $c \Delta x \Delta y = c \Delta A$.
 
-Let $R = [a,b] \times [c,d]$ be a rectangle in $\R^2$.  That is, all the points
+Let $R = [a,b] \times [c,d]$ be a rectangle in $\R^2$.  That is, $R$ is all the points
 $(x,y)$ such that $a \leq x \leq b$ and $c \leq y \leq d$.
 We divide $R$ into a bunch of rectangles of area $\Delta A = \Delta x \Delta y$.
 In each of these rectangles we pick a point $(x_j,y_j)$ and then
@@ -527,10 +567,15 @@ f(x_j,y_j) \Delta A ,
 $$
 which is a reasonable approximation for the volume under the graph of $f$ above the rectangle
 $R$.
-Taking limit as $\Delta x$ and $\Delta y$ go to zero and therefore $\Delta A$ goes to zero
+Taking the
+limit as $\Delta x$ and $\Delta y$ go to zero,
+and therefore as $\Delta A$ goes to zero,
 we find the limit
 $$
-\iint_R f(x,y) \, dA
+\lim_{\Delta A \to 0}
+\sum_j 
+f(x_j,y_j) \Delta A =
+\iint_R f(x,y) \, dA ,
 $$
 which we call the double integral of $f$ over $R$.
 For a reasonable function (such as continuous), this limit exists.
@@ -544,10 +589,10 @@ $$
 \int_a^b \int_c^d f(x,y) \, dy \, dx .
 $$
 Notice the units of this quantity.  It is the units of $f$ times the units of $x$ times
-the units of $y$.  So for example if all three are meters, then the units of $dA$ is $m^2$ and
-the units of
+the units of $y$.  So for example if all three are meters, then the unit of $dA$ is $m^2$ and
+the unit of
 $f(x,y) \, dA$
-and therefore
+and therefore of
 $\iint_R f(x,y) \, dA$
 is $m^3$ or volume.
 
@@ -583,31 +628,67 @@ $$
 $$
 for simplicity.
 
-We could generalize this further, given $f(x_1,\ldots,x_n)$ on $\R^n$, we start with
+We could generalize this further. Given $f(x_1,\ldots,x_n)$ on $\R^n$, we start with
 the $n$ dimensional volume element $dV_n$ or just $dV$, we integrate $f$, and obtain
 $n+1$ dimensional volume ``under the graph.''
 Mathematicians sometimes do not make distinction for $n=1$ and $n=2$, and simply call
-everything ``volume,' so 1 dimensional volume is simply length, 2 dimensional volume is
+everything ``volume,' so 1-dimensional volume is simply length, 2-dimensional volume is
 area, etc.
 Mathematicians also often do not use $\iint$ and $\iiint$,
-and so on and simply use $\int$,
+and so on, and simply use $\int$,
 as we all know in what dimension we are integrating based on the nature of
 the element $dV$ or $dA$ or whatnot.
 
-The integral is additive, that is if $B$ is the disjoint union of $B_1$ and $B_2$,
+An integral over a region that is not a rectangle
+is achieved by setting the function to zero
+outside this region and then integrating over
+a large rectangle.  It can also be achieved by
+using iterated integrals and integrating over
+the changing the limits as appropriate.  For example,
+given a triangle $T$ with vertices at $(0,0)$, $(2,0)$,
+and $(2,1)$, let us compute the integral of $x^2y$
+$T$.  We can describe $T$ as either
+$0 \leq x \leq 2$, $0 \leq y \leq \frac{x}{2}$, or as
+$0 \leq y \leq 1$, $2y \leq x \leq 2$.  Let us compute
+$$
+\iint_T x^2 y \, dA
+=
+\int_0^2 \int_0^{x/2} x^2y \, dy \, dx
+=
+\int_0^2 x^2\frac{(x/2)^2}{2}  \, dx
+=
+\int_0^2 \frac{x^4}{8}  \, dx
+=
+ \frac{2^5}{8 \cdot 5} = \frac{4}{5} ,
+$$
+or
+$$
+\iint_T x^2 y \, dA
+=
+\int_0^1 \int_{2y}^{2} x^2y \, dx \, dy
+=
+\int_0^1 \left(\frac{2^3 y}{3} - \frac{(2y)^3y}{3} \right) \, dy
+=
+\int_0^1 \frac{8y-8y^4}{3} \, dy
+=
+\frac{4}{5} .
+$$
+Not surprisingly we got the same answer of course, since it is the same region.
+
+The integral is additive, that is, if $B$ is the disjoint union of $B_1$ and $B_2$,
 then
 $$
-\iiint_B f \, dV = 
-\iiint_{B_1} f \, dV +
-\iiint_{B_2} f \, dV .
+\iint_B f \, dA = 
+\iint_{B_1} f \, dA +
+\iint_{B_2} f \, dA .
 $$
 
 Also the integral is linear, that is if $\alpha, \beta$ are real numbers and
 $f$ and $g$ are functions then
 $$
-\iiint_B \alpha f + \beta g \, dV = 
-\alpha \iiint_B f \, dV +
-\beta \iiint_B g \, dV .
+\iint_B \alpha f + \beta g \, dA = 
+\alpha \iint_B f \, dA +
+\beta \iint_B g \, dA .
 $$
 
 Understanding the above development of the integral is important
