@@ -177,7 +177,7 @@ $\vv{v}$ or $\mathbf{v}$, although mathematicians often just write $v$ and simpl
 that $v$ is a vector.
 On the board I write $\vv{v}$ although the book uses $\mathbf{v}$
 (it is difficult to write bold on the board \Smiley{}).
-The book also uses $\mathbf{\hat{v}}$ for unit vectors, that is,
+The book also uses $\hat{\mathbf{v}}$ for unit vectors, that is,
 vectors of magnitude one.  We will write $\hat{v}$.
 
 The best way to think about it is thinking of a moving particle in space.
@@ -186,14 +186,15 @@ while a \emph{vector} describes velocity, that is, the direction the object is t
 Forces and displacements are also described by vectors.
 A vector can say how to go from point $A$ to point $B$
 (start at $A$ in this direction and go this far to get to $B$).
-Such a vector is written $\vv{AB}$.
+We write such a vector as $\vv{AB}$.
 
 A space $\R^n$ has one special point $O = (0,0,\ldots,0)$, the \emph{origin}.
 We can describe a vector $\vv{v}$ via a point $A$ in space if the vector describes the
 displacement from $O$ to $A$, so $\vv{v} = \vv{OA}$.
-Then we say $\vv{v}$ is the \emph{position vector} of $A$.
+We say $\vv{v}$ is the \emph{position vector} of the point $A$.
 This means that a vector can be described by 3 numbers just like a point.
-We don't necessarily want to use the same notation as for points, to distinguish
+We don't necessarily want to use the same notation as for points.
+To distinguish the concepts,
 a common notation for vectors is
 \[
 \langle a,b,c \rangle ,
@@ -212,12 +213,12 @@ The analogue of the origin is the zero vector $\vv{0}$, for example,
 \vv{0} = \langle 0,0,0 \rangle
 \]
 in $\R^3$.
-It is the single vector which does not have a well-defined direction,
+It is the single vector that does not have a well-defined direction
 and has a zero magnitude.
 If you go distance zero, then it doesn't matter in which direction
 you traveled.
 
-There are a certain number of special vectors called the
+There are a certain special vectors called the
 \emph{standard basis vectors}.
 In $\R^2$ and $\R^3$ they have special names.
 In $\R^2$:
@@ -229,20 +230,20 @@ In $\R^3$:
 \[
 \veci = \langle 1, 0, 0 \rangle, \qquad
 \vecj = \langle 0, 1, 0 \rangle, \qquad
-\veck = \langle 0, 0, 1 \rangle
+\veck = \langle 0, 0, 1 \rangle.
 \]
 We use hats instead of arrows above the ijk,
 because these vectors are
 unit vectors, that is vectors of magnitude 1.
 
 The convenient way to write vectors is using the standard basis.
-That is, in $\R^2$ write,
+That is, in $\R^2$, write
 \[
 \langle a,b \rangle = a \veci + b \vecj,
 \qquad \text{e.g.} \quad
 \langle 3,4 \rangle = 3 \veci + 4 \vecj.
 \]
-In $\R^3$ write,
+In $\R^3$, write
 \[
 \langle a,b,c \rangle = a \veci + b \vecj + c \veck,
 \qquad \text{e.g.} \quad
@@ -254,7 +255,7 @@ First, scalar multiplication.
 Real numbers are called \emph{scalars} when vectors are around,
 because they are used to ``scale'' the vectors.
 If $\alpha$ is a scalar and $\vv{v}$
-is a vector then the product $\alpha\vv{v}$ is the vector with the same direction as
+is a vector, then the product $\alpha\vv{v}$ is the vector with the same direction as
 $\vv{v}$ (as long as $\alpha \geq 0$) and magnitude multiplied by $\alpha$.
 If $\alpha < 0$, then the direction is reversed and the magnitude is multiplied by
 $\sabs{\alpha}$.
@@ -574,7 +575,7 @@ if $f(x_1,x_2,x_3,x_4) = x_1^2x_2x_3 + x_2 x_4$ then
 
 \section{Multiple integrals}
 
-In the plane the area of a small rectangle with sides $\Delta x$ and $\Delta y$
+In the plane, the area of a small rectangle with sides $\Delta x$ and $\Delta y$
 is $\Delta A = \Delta x \Delta y$.
 If we build a box of height $c$ above
 this small rectangle, the volume of the box is $c \Delta x \Delta y = c \Delta A$.
