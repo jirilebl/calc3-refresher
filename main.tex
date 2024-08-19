@@ -107,6 +107,9 @@
 \newcommand{\vecj}{\hat{\jmath}}
 \newcommand{\veck}{\hat{k}}
 
+% discourage pagebreak at end of display, put before \end{equation}
+\newcommand{\avoidbreak}{\postdisplaypenalty=100}
+
 \begin{document}
 
 \title{Calculus III Refresher for Vector Calculus}
@@ -130,7 +133,7 @@ H.\ M.\ Schey,
 We start with a very quick review of the concepts
 from Calculus III that we will
 need and that are not covered in Schey---a crash course if you will.
-We won't cover nearly everything that you may have seen in Calculus III in this quick overview,
+We'll cover nowhere near everything that you may have seen in Calculus III in this quick overview,
 just the very basics.  We will also go over a couple of things that you may not have seen
 in Calculus III, but that we will need for this class.
 You should look back at your Calculus III textbook.  If you no longer have that or need another source, there is a wonderful free textbook:
@@ -160,10 +163,10 @@ The following are points in $\R^3$
 \]
 Of course, $\R^n$ can be $\R^2$ or $\R^3$, and even $\R = \R^1$, as $n$ can always be
 1, 2, or 3.
-The coordinates used in calculus are $x$ for $\R$, $(x,y)$ for $\R^2$, and $(x,y,z)$
+The coordinates used in calculus are often $x$ for $\R$, $(x,y)$ for $\R^2$, and $(x,y,z)$
 for $\R^3$.
 In $\R^n$ in general, we run out of letters, and so we use something like
-subscripts $(x_1,x_2,\ldots,x_n)$.  Other letters than $x$ are used just as much.
+subscripts $(x_1,x_2,\ldots,x_n)$.  Other letters than $x$ are also used.
 We mostly focus on $\R^3$ (and $\R^2$ to some extent) in this course.
 
 Now that we have points, another object is a \emph{vector}.
@@ -175,7 +178,7 @@ it only cares about its direction and its magnitude.
 To give vectors names, people often use
 $\vv{v}$ or $\mathbf{v}$, although mathematicians often just write $v$ and simply remember
 that $v$ is a vector.
-On the board I write $\vv{v}$ although the book uses $\mathbf{v}$
+On the board, I write $\vv{v}$ although the book uses $\mathbf{v}$
 (it is difficult to write bold on the board \Smiley{}).
 The book also uses $\hat{\mathbf{v}}$ for unit vectors, that is,
 vectors of magnitude one.  We will write $\hat{v}$.
@@ -188,7 +191,7 @@ A vector can say how to go from point $A$ to point $B$
 (start at $A$ in this direction and go this far to get to $B$).
 We write such a vector as $\vv{AB}$.
 
-A space $\R^n$ has one special point $O = (0,0,\ldots,0)$, the \emph{origin}.
+The space $\R^n$ has one special point $O = (0,0,\ldots,0)$, the \emph{origin}.
 We can describe a vector $\vv{v}$ via a point $A$ in space if the vector describes the
 displacement from $O$ to $A$, so $\vv{v} = \vv{OA}$.
 We say $\vv{v}$ is the \emph{position vector} of the point $A$.
@@ -236,7 +239,7 @@ We use hats instead of arrows above the ijk,
 because these vectors are
 unit vectors, that is vectors of magnitude 1.
 
-The convenient way to write vectors is using the standard basis.
+A convenient way to write vectors is using the standard basis.
 That is, in $\R^2$, write
 \[
 \langle a,b \rangle = a \veci + b \vecj,
@@ -315,8 +318,8 @@ the vector
 \hat{v} = \frac{1}{\sabs{\vv{v}}} \vv{v} = \frac{\vv{v}}{\sabs{\vv{v}}} .
 \]
 Although we'll try to state explicitly that $\hat{v}$  is the direction of $\vv{v}$.
-Notice again that we put a hat instead of an arrow on unit vectors.  It is relatively
-common to use $\hat{v}$ for a unit vector, even if there was no
+Notice again that we put a hat instead of an arrow on unit vectors.
+We use $\hat{v}$ for a unit vector, even if there was no
 $\vv{v}$ to begin with.  We did this with $\veci$, $\vecj$, and $\veck$.
 
 All of these notions are generalized to $\R^n$ in the obvious manner.
@@ -333,7 +336,7 @@ of a single particle has 6 dimensions
 And if we are modeling liquid by pretending it
 is a 1000 particles (liquid, after all,
 is a whole bunch of particles),
-then the phase space has dimensionn 6000.
+then the phase space has dimension 6000.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -408,6 +411,7 @@ and $\hat{n}$ is the normal vector to that plane oriented according to the right
 The orientation can be figured out from the formula
 \[
 \veci \times \vecj = \veck .
+\avoidbreak
 \]
 That is, $\veck$ is the normal vector to the $xy$-plane using the right hand rule.
 
@@ -480,7 +484,7 @@ $-\veci - 6\vecj + 3 \veck$ is orthogonal
 $3 \veci + \veck$ and also to
 $\vecj + 2 \veck$.
 
-A common mnemonic for computing the cross product
+A common technique for computing the cross product
 is using the determinant formula:
 \[
 (a \veci + b \vecj + c \veck ) \times 
