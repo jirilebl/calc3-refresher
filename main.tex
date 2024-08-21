@@ -342,7 +342,7 @@ then the phase space has dimension 6000.
 
 \section{Products of vectors}
 
-We saw one product, that is product of a scalar and a vector:
+We saw one product, that is, the product of a scalar and a vector:
 \[
 \alpha \vv{v}.
 \]
@@ -373,8 +373,8 @@ Geometrically in $\R^2$ or $\R^3$, this product is
 where $\theta$ is the angle between $\vv{v}$ and $\vv{w}$.
 So the dot product can be used to compute the angle.
 It doesn't matter if you think of the angle
-between $\vv{v}$ and $\vv{w}$ or vice-versa, as we are taking the cosine here.
-Also, there are two ways you could define the angle depending which direction you start in,
+between $\vv{v}$ and $\vv{w}$ or vice-versa, as we are taking the cosine here:
+There are two ways you could define the angle depending which direction you start in,
 but because of the cosine you get the same dot product.
 Two vectors are orthogonal
 (at right angle, perpendicular) if their dot product is zero.
@@ -434,11 +434,11 @@ It is anti-commutative:
 \[
 \vv{v} \times \vv{w} = - \vv{w} \times \vv{v} .
 \]
-From this we find
+Anticommutativity implies
 \[
 \vv{v} \times \vv{v} = \vv{0} .
 \]
-To compute the product we can use the identities:
+To compute the product, we can use the identities
 \[
 \veci \times \vecj = \veck , \qquad
 \vecj \times \veck = \veci , \qquad
@@ -484,8 +484,8 @@ $-\veci - 6\vecj + 3 \veck$ is orthogonal
 $3 \veci + \veck$ and also to
 $\vecj + 2 \veck$.
 
-A common technique for computing the cross product
-is using the determinant formula:
+A common trick to compute the cross product
+is the determinant formula:
 \[
 (a \veci + b \vecj + c \veck ) \times 
 (d \veci + e \vecj + f \veck ) =
@@ -539,7 +539,7 @@ then the temperature $T(x,y,z)$ is a function.  Sometimes this is called a
 If we keep $y$ and $z$ fixed, then the assignment that takes $x$ to $f(x,y,z)$ is a
 function of one variable.
 Its derivative is the so-called \emph{partial derivative} with respect to $x$,
-written $\frac{\partial f}{\partial x}$.  That is
+written $\frac{\partial f}{\partial x}$.  That is,
 \[
 \frac{\partial f}{\partial x}(x,y,z) =
 \lim_{h\to 0} \frac{f(x+h,y,z)-f(x,y,z)}{h} .
@@ -553,7 +553,7 @@ course for the partial derivative as
 it may get confusing;
 we reserve the subscript for another concept.
 
-To compute partials we simply consider all other variables constant.
+To compute partials, we simply consider all other variables constant.
 For example, if $f(x,y,z) = x^2yz + xy + z$, then
 \[
 \frac{\partial f}{\partial x}(x,y,z) = 2xyz + y,
@@ -562,7 +562,7 @@ For example, if $f(x,y,z) = x^2yz + xy + z$, then
 \qquad \text{and} \qquad
 \frac{\partial f}{\partial z}(x,y,z) = x^2y + 1 .
 \]
-As these are functions we may take the derivative again.  Let us show a couple of examples,
+As these are functions, we may take the derivative again.  Let us show a couple of examples,
 \[
 \frac{\partial^2 f}{\partial x \partial y}(x,y,z) = 2xz + 1,
 \qquad \text{and} \qquad
@@ -660,6 +660,7 @@ $\iiint_B f(x,y) \, dV$ is in units $m^4$, or 4-dimensional volume.
 Sometimes we might just write
 \[
 \iiint_B f \, dV
+\avoidbreak
 \]
 for simplicity.
 
@@ -723,7 +724,7 @@ then
 Also the integral is linear, that is if $\alpha, \beta$ are real numbers and
 $f$ and $g$ are functions, then
 \[
-\iint_B \alpha f + \beta g \, dA = 
+\iint_B (\alpha f + \beta g) \, dA = 
 \alpha \iint_B f \, dA +
 \beta \iint_B g \, dA .
 \]
