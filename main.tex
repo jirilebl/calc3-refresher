@@ -609,13 +609,13 @@ as $\Delta x$ and $\Delta y$ go to zero,
 and therefore as $\Delta A$ goes to zero:
 \[
 \iint_R f(x,y) \, dA =
-\lim_{\Delta A \to 0}
+\lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}}
 \sum_j 
 f(x_j,y_j) \Delta A ,
 \]
 For a reasonable function (e.g.\ continuous), this limit exists.
 The sum can be done column-wise or row-wise, in which case we have a
-double sum, and taking the limits we find that
+double sum, and taking the limits, we find that
 \[
 \iint_R f(x,y) \, dA
 =
@@ -635,7 +635,7 @@ For example,
 \[
 \iint_R dA = A(R) = (b-a)(d-c) .
 \]
-Here $A(R)$ is the area of of $R$.  Another example:  Let $R = [0,1] \times [0,1]$
+Here $A(R)$ is the area of $R$.  Another example:  Let $R = [0,1] \times [0,1]$
 \[
 \iint_R xy\, dA =
 \int_0^1 \int_0^1 xy \, dx \, dy
@@ -644,10 +644,11 @@ Here $A(R)$ is the area of of $R$.  Another example:  Let $R = [0,1] \times [0,1
 = \frac{1}{4}.
 \]
 
-Similarly in $\R^3$, a little box of sides $\Delta x$, $\Delta y$, $\Delta z$
+Similarly in $\R^3$, a little box of sides $\Delta x$, $\Delta y$, and $\Delta z$
 is of volume $\Delta V = \Delta x \Delta y \Delta z$.  
-Let $B = [a,b] \times [c,d] \times [e,f]$.
+Let $B = [a,b] \times [c,d] \times [e,f]$ be a box.
 We follow the same procedure above to find for a function $f(x,y,z)$
+defined on the box $B$,
 \[
 \iiint_B f(x,y,z) \, dV
 =
@@ -681,13 +682,13 @@ An integral over a region that is not a rectangle
 is achieved by setting the function to zero
 outside this region and then integrating over
 a large rectangle.  It can also be achieved by
-using iterated integrals and integrating over
-the changing the limits as appropriate.  For example,
+using iterated integrals and
+changing the limits as appropriate.  For example,
 given a triangle $T$ with vertices at $(0,0)$, $(2,0)$,
 and $(2,1)$, let us compute the integral of $x^2y$
-$T$.  We can describe $T$ as either
+over $T$.  Describe $T$ as either
 $0 \leq x \leq 2$, $0 \leq y \leq \frac{x}{2}$, or as
-$0 \leq y \leq 1$, $2y \leq x \leq 2$.  Let us compute
+$0 \leq y \leq 1$, $2y \leq x \leq 2$.  Compute
 \[
 \iint_T x^2 y \, dA
 =
@@ -721,8 +722,7 @@ then
 \iint_{B_1} f \, dA +
 \iint_{B_2} f \, dA .
 \]
-
-Also the integral is linear, that is if $\alpha, \beta$ are real numbers and
+The integral is also linear, that is, if $\alpha, \beta$ are real numbers and
 $f$ and $g$ are functions, then
 \[
 \iint_B (\alpha f + \beta g) \, dA = 
