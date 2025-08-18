@@ -15,6 +15,7 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{esvect}
+\usepackage{units}
 
 \usepackage{tikzsymbols}
 
@@ -323,9 +324,10 @@ the vector
 \hat{\mathbf{v}} = \frac{1}{\sabs{\mathbf{v}}} \mathbf{v} = \frac{\mathbf{v}}{\sabs{\mathbf{v}}} .
 \]
 Although we'll try to state explicitly that $\hat{\mathbf{v}}$  is the direction of $\mathbf{v}$.
-Notice again that we put a hat instead of an arrow on unit vectors.
-We use $\hat{\mathbf{v}}$ for a unit vector, even if there was no
-$\mathbf{v}$ to begin with.  We did this with $\veci$, $\vecj$, and $\veck$.
+Notice again that we put a hat on unit vectors, in this case we put a hat
+on $\mathbf{v}$ to \emph{make} it into a unit vector.
+We often use $\hat{\mathbf{v}}$ for a unit vector even if there was no
+$\mathbf{v}$ to begin with.
 
 All of these notions are generalized to $\R^n$ in the obvious manner.
 Higher number of dimensions do occur naturally.
@@ -334,8 +336,8 @@ that is $\R^4$.  Similarly, the space of all configurations of two particles in 
 is really $\R^6$, that is $(x_1,y_1,z_1,x_2,y_2,z_2)$, where
 $(x_1,y_1,z_1)$, is the position of the first particle and $(x_2,y_2,z_2)$ is
 the position of the second.
-Similarly to the space of possible
-position--velocity configurations (phase space)
+Similarly, the space of possible
+position-velocity configurations (phase space)
 of a single particle has 6 dimensions
 (3 dimensions for position and 3 for velocity).
 And if we are modeling liquid by pretending it
@@ -366,7 +368,7 @@ E.g.,
 \]
 This product is easy to generalize to any number of dimensions in the obvious way.
 Notice that the result of this product is a scalar and not a vector.
-For this reason it is sometimes called the scalar product.
+For this reason, it is sometimes called the scalar product.
 The dot product can compute the magnitude of a vector:
 \[
 \sabs{\mathbf{v}}^2 = \mathbf{v} \cdot \mathbf{v} .
@@ -379,7 +381,7 @@ where $\theta$ is the angle between $\mathbf{v}$ and $\mathbf{w}$.
 So the dot product can be used to compute the angle.
 It doesn't matter if you think of the angle
 between $\mathbf{v}$ and $\mathbf{w}$ or vice-versa, as we are taking the cosine here:
-There are two ways you could define the angle depending which direction you start in,
+There are two ways you could define the angle depending on which direction you start in,
 but because of the cosine you get the same dot product.
 Two vectors are orthogonal
 (at right angle, perpendicular) if their dot product is zero.
@@ -630,12 +632,13 @@ double sum, and taking the limits, we find that
 \int_a^b \int_c^d f(x,y) \, dy \, dx .
 \]
 Notice the units of this quantity.  It is the units of $f$ times the units of $x$ times
-the units of $y$.  So for example, if all three are meters, then the unit of $dA$ is $m^2$ and
+the units of $y$.  So for example, if all three are meters, $\unit{m}$,
+then the unit of $dA$ is $\unit{m^2}$ and
 the unit of
 $f(x,y) \, dA$
 and therefore of
 $\iint_R f(x,y) \, dA$
-is $m^3$ or volume.
+is $\unit{m^3}$ or volume.
 
 For example,
 \[
@@ -662,7 +665,9 @@ defined on the box $B$,
 \]
 All the other orderings of $dx$, $dy$, and $dz$ also work.
 Notice the units.  If all dimensions are in meters, then
-$\iiint_B f(x,y) \, dV$ is in units $m^4$, or 4-dimensional volume.
+the unit of
+$\iiint_B f(x,y,z) \, dV$ is $\unit{m^4}$, or 4-dimensional volume,
+as the unit of $f$ is $\unit{m}$ and the unit of $dV$ is $\unit{m^3}$.
 
 Sometimes we might just write
 \[
