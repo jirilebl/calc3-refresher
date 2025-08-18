@@ -103,9 +103,12 @@
 \newcommand{\from}{\ensuremath{\leftarrow}}
 \newcommand{\dhat}[1]{\hat{\hat{#1}}}
 
-\newcommand{\veci}{\hat{\imath}}
-\newcommand{\vecj}{\hat{\jmath}}
-\newcommand{\veck}{\hat{k}}
+%\newcommand{\veci}{\hat{\imath}}
+%\newcommand{\vecj}{\hat{\jmath}}
+%\newcommand{\veck}{\hat{k}}
+\newcommand{\veci}{\mathbf{i}}
+\newcommand{\vecj}{\mathbf{j}}
+\newcommand{\veck}{\mathbf{k}}
 
 % discourage pagebreak at end of display, put before \end{equation}
 \newcommand{\avoidbreak}{\postdisplaypenalty=100}
@@ -134,7 +137,8 @@ We start with a very quick review of the concepts
 from Calculus III that we will
 need and that are not covered in Schey---a crash course if you will.
 We'll cover nowhere near everything that you may have seen in Calculus III in this quick overview,
-just the very basics.  We will also go over a couple of things that you may not have seen
+just what is needed to read through Schey.
+We will also go over a couple of things that you may not have seen
 in Calculus III, but that we will need for this class.
 You should look back at your Calculus III textbook.  If you no longer have that or need another source, there is a wonderful free textbook:
 
@@ -145,19 +149,19 @@ Gregory Hartman, \emph{APEX Calculus}, \url{http://www.apexcalculus.com}.  You c
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Vectors}
+\section{Points and vectors}
 
 In basic calculus, one deals with $\R$, the real numbers, a one-dimensional space, or the \emph{line}.
-In vector calculus, we consider the two dimensional cartesian space $\R^2$,
+In vector calculus, we consider the two-dimensional cartesian space $\R^2$,
 the \emph{plane};
-three dimensional space $\R^3$; and in general the $n$-dimensional cartesian space $\R^n$.
+three-dimensional space $\R^3$; and in general the $n$-dimensional cartesian space $\R^n$.
 A \emph{point} in $\R^2, \R^3$, or $\R^n$ is simply a tuple,
 a 3-tuple, or an $n$-tuple (respectively) of real numbers.
-For example, the following are points in $\R^2$
+For example, the following are points in $\R^2$:
 \[
 (1,-2), \qquad (0,1), \qquad (-1,10), \qquad \text{etc.}
 \]
-The following are points in $\R^3$
+The following are points in $\R^3$:
 \[
 (1,-2,3), \qquad (0,0,1), \qquad (-1,-1,10), \qquad \text{etc.}
 \]
@@ -176,12 +180,12 @@ although it does not really care as to where the arrow starts,
 it only cares about its direction and its magnitude.
 
 To give vectors names, people often use
-$\vv{v}$ or $\mathbf{v}$, although mathematicians often just write $v$ and simply remember
+$\mathbf{v}$ or $\vv{v}$, although mathematicians often just write $v$ and simply remember
 that $v$ is a vector.
 On the board, I write $\vv{v}$ although the book uses $\mathbf{v}$
 (it is difficult to write bold on the board \Smiley{}).
 The book also uses $\hat{\mathbf{v}}$ for unit vectors, that is,
-vectors of magnitude one.  We will write $\hat{v}$.
+vectors of magnitude one.
 
 The best way to think about it is thinking of a moving particle in space.
 A \emph{point} describes the position of a particle,
@@ -192,9 +196,9 @@ A vector can say how to go from point $A$ to point $B$
 We write such a vector as $\vv{AB}$.
 
 The space $\R^n$ has one special point $O = (0,0,\ldots,0)$, the \emph{origin}.
-We can describe a vector $\vv{v}$ via a point $A$ in space if the vector describes the
-displacement from $O$ to $A$, so $\vv{v} = \vv{OA}$.
-We say $\vv{v}$ is the \emph{position vector} of the point $A$.
+We can describe a vector $\mathbf{v}$ via a point $A$ in space if the vector describes the
+displacement from $O$ to $A$, so $\mathbf{v} = \vv{OA}$.
+We say $\mathbf{v}$ is the \emph{position vector} of the point $A$.
 This means that a vector can be described by 3 numbers just like a point.
 We don't necessarily want to use the same notation as for points.
 To distinguish the concepts,
@@ -211,45 +215,45 @@ Just like say temperature, time, or speed are very different
 things, they are each described by a single number.  And we don't want to
 confuse speed, time, and temperature.
 
-The analogue of the origin is the zero vector $\vv{0}$, for example,
+The analogue of the origin is the zero vector $\mathbf{0}$, for example,
 \[
-\vv{0} = \langle 0,0,0 \rangle
+\mathbf{0} = \langle 0,0,0 \rangle
 \]
 in $\R^3$.
 It is the single vector that does not have a well-defined direction
 and has a zero magnitude.
 If you go distance zero, then it doesn't matter in which direction
-you traveled.
+you travel.
 
-There are a certain special vectors called the
+There are certain special vectors called the
 \emph{standard basis vectors}.
-In $\R^2$ and $\R^3$ they have special names.
-In $\R^2$:
+In $\R^2$ and $\R^3$, they have special names.
+In $\R^2$,
 \[
 \veci = \langle 1 , 0 \rangle, \qquad
 \vecj = \langle 0 , 1 \rangle.
 \]
-In $\R^3$:
+In $\R^3$,
 \[
 \veci = \langle 1, 0, 0 \rangle, \qquad
 \vecj = \langle 0, 1, 0 \rangle, \qquad
 \veck = \langle 0, 0, 1 \rangle.
 \]
-We use hats instead of arrows above the ijk,
+Sometimes, people write hats above the ijk,
 because these vectors are
-unit vectors, that is vectors of magnitude 1.
+unit vectors, but the book doesn't do that, so we will also not do it.
 
 A convenient way to write vectors is using the standard basis.
 That is, in $\R^2$, write
 \[
 \langle a,b \rangle = a \veci + b \vecj,
-\qquad \text{e.g.} \quad
+\qquad \text{e.g.,} \quad
 \langle 3,4 \rangle = 3 \veci + 4 \vecj.
 \]
 In $\R^3$, write
 \[
 \langle a,b,c \rangle = a \veci + b \vecj + c \veck,
-\qquad \text{e.g.} \quad
+\qquad \text{e.g.,} \quad
 \langle 3,4,-2 \rangle = 3 \veci + 4 \vecj - 2 \veck.
 \]
 
@@ -257,32 +261,32 @@ We also allow arithmetic with vectors.
 First, scalar multiplication.
 Real numbers are called \emph{scalars} when vectors are around,
 because they are used to ``scale'' the vectors.
-If $\alpha$ is a scalar and $\vv{v}$
-is a vector, then the product $\alpha\vv{v}$ is the vector with the same direction as
-$\vv{v}$ (as long as $\alpha \geq 0$) and magnitude multiplied by $\alpha$.
+If $\alpha$ is a scalar and $\mathbf{v}$
+is a vector, then the product $\alpha\mathbf{v}$ is the vector with the same direction as
+$\mathbf{v}$ (as long as $\alpha \geq 0$) and magnitude multiplied by $\alpha$.
 If $\alpha < 0$, then the direction is reversed and the magnitude is multiplied by
 $\sabs{\alpha}$.
 It turns out that
 \[
 \alpha ( a \veci + b \vecj + c \veck ) =
 \alpha a \veci + \alpha b \vecj + \alpha c \veck,
-\qquad \text{e.g.} \quad
+\qquad \text{e.g.,} \quad
 2 ( 3 \veci + 4 \vecj - 2 \veck ) =
 6 \veci + 8 \vecj - 4 \veck
 .
 \]
 We can also add vectors.
 Vector addition is defined by using the displacement interpretation of vectors.
-If $\vv{v}$ and $\vv{w}$ are vectors,
-then $\vv{v}+\vv{w}$ is the vector where we travel along $\vv{v}$ first
-and then along $\vv{w}$.
+If $\mathbf{v}$ and $\mathbf{w}$ are vectors,
+then $\mathbf{v}+\mathbf{w}$ is the vector where we travel along $\mathbf{v}$ first
+and then along $\mathbf{w}$.
 It turns out that
 \[
 ( a \veci + b \vecj + c \veck ) +
 ( d \veci + e \vecj + f \veck ) =
 (a+d) \veci + (b+e) \vecj + (c+f) \veck .
 \]
-E.g.
+E.g.,
 \[
 ( \veci + 2 \vecj + 3 \veck ) +
 ( 5 \veci + \vecj - 3 \veck ) =
@@ -290,8 +294,8 @@ E.g.
 .
 \]
 
-We write the magnitude of $\vv{v}$ as
-$\sabs{\vv{v}}$.
+We write the magnitude of $\mathbf{v}$ as
+$\sabs{\mathbf{v}}$.
 The following formulas compute the magnitude of a vector.
 In $\R^2$:
 \[
@@ -305,22 +309,22 @@ and in $\R^3$:
 =
 \sqrt{a^2+b^2+c^2} .
 \]
-Sometimes when given a vector $\vv{r}$, its magnitude is written simply as
-$r$, rather than $\sabs{\vv{r}}$.
+Sometimes when given a vector $\mathbf{r}$, its magnitude is written simply as
+$r$, rather than $\sabs{\mathbf{r}}$.
 You may have seen $\snorm{\vec{v}}$ for magnitude. 
 It is the same thing.
 We will use single bars in this course to
 match the book.
 
-The direction of $\vv{v}$ written $\hat{v}$ is then
+The direction of $\mathbf{v}$ written $\hat{v}$ is then
 the vector
 \[
-\hat{v} = \frac{1}{\sabs{\vv{v}}} \vv{v} = \frac{\vv{v}}{\sabs{\vv{v}}} .
+\hat{v} = \frac{1}{\sabs{\mathbf{v}}} \mathbf{v} = \frac{\mathbf{v}}{\sabs{\mathbf{v}}} .
 \]
-Although we'll try to state explicitly that $\hat{v}$  is the direction of $\vv{v}$.
+Although we'll try to state explicitly that $\hat{v}$  is the direction of $\mathbf{v}$.
 Notice again that we put a hat instead of an arrow on unit vectors.
 We use $\hat{v}$ for a unit vector, even if there was no
-$\vv{v}$ to begin with.  We did this with $\veci$, $\vecj$, and $\veck$.
+$\mathbf{v}$ to begin with.  We did this with $\veci$, $\vecj$, and $\veck$.
 
 All of these notions are generalized to $\R^n$ in the obvious manner.
 Higher number of dimensions do occur naturally.
@@ -344,7 +348,7 @@ then the phase space has dimension 6000.
 
 We saw one product, that is, the product of a scalar and a vector:
 \[
-\alpha \vv{v}.
+\alpha \mathbf{v}.
 \]
 
 Another type of product is the so-called \emph{dot product}
@@ -353,7 +357,7 @@ Another type of product is the so-called \emph{dot product}
 ( d \veci + e \vecj + f \veck ) =
 ad + be + cf .
 \]
-E.g.
+E.g.,
 \[
 ( 3 \veci + \vecj -2 \veck ) \cdot
 ( - 2\veci + 5 \vecj + \veck ) =
@@ -364,16 +368,16 @@ Notice that the result of this product is a scalar and not a vector.
 For this reason it is sometimes called the scalar product.
 The dot product can compute the magnitude of a vector:
 \[
-\sabs{\vv{v}}^2 = \vv{v} \cdot \vv{v} .
+\sabs{\mathbf{v}}^2 = \mathbf{v} \cdot \mathbf{v} .
 \]
 Geometrically in $\R^2$ or $\R^3$, this product is
 \[
-\vv{v} \cdot \vv{w} = \sabs{\vv{v}} \sabs{\vv{w}} \cos \theta ,
+\mathbf{v} \cdot \mathbf{w} = \sabs{\mathbf{v}} \sabs{\mathbf{w}} \cos \theta ,
 \]
-where $\theta$ is the angle between $\vv{v}$ and $\vv{w}$.
+where $\theta$ is the angle between $\mathbf{v}$ and $\mathbf{w}$.
 So the dot product can be used to compute the angle.
 It doesn't matter if you think of the angle
-between $\vv{v}$ and $\vv{w}$ or vice-versa, as we are taking the cosine here:
+between $\mathbf{v}$ and $\mathbf{w}$ or vice-versa, as we are taking the cosine here:
 There are two ways you could define the angle depending which direction you start in,
 but because of the cosine you get the same dot product.
 Two vectors are orthogonal
@@ -381,20 +385,20 @@ Two vectors are orthogonal
 
 The dot product is bilinear (if something is called a product, usually people want it to be bilinear):
 \[
-( \alpha \vv{v} + \beta \vv{w} ) \cdot \vv{u}
+( \alpha \mathbf{v} + \beta \mathbf{w} ) \cdot \mathbf{u}
 =
-\alpha (\vv{v} \cdot \vv{u}) + \beta (\vv{w} \cdot \vv{u})
+\alpha (\mathbf{v} \cdot \mathbf{u}) + \beta (\mathbf{w} \cdot \mathbf{u})
 \]
 and
 \[
-\vv{u} \cdot
-( \alpha \vv{v} + \beta \vv{w} )
+\mathbf{u} \cdot
+( \alpha \mathbf{v} + \beta \mathbf{w} )
 =
-\alpha (\vv{u} \cdot \vv{v}) + \beta (\vv{u} \cdot \vv{w}) .
+\alpha (\mathbf{u} \cdot \mathbf{v}) + \beta (\mathbf{u} \cdot \mathbf{w}) .
 \]
 It is also commutative (not all products are commutative):
 \[
-\vv{v} \cdot \vv{w} = \vv{w} \cdot \vv{v} .
+\mathbf{v} \cdot \mathbf{w} = \mathbf{w} \cdot \mathbf{v} .
 \]
 
 Another type of product, which really only exists in $\R^3$, is the
@@ -403,9 +407,9 @@ sometimes called the \emph{vector product}.
 This product results in a vector.
 Geometrically
 \[
-\vv{v} \times \vv{w} = \sabs{\vv{v}} \sabs{\vv{w}} (\sin \theta) \hat{n} .
+\mathbf{v} \times \mathbf{w} = \sabs{\mathbf{v}} \sabs{\mathbf{w}} (\sin \theta) \hat{n} .
 \]
-Where $\theta$ is the angle going from $\vv{v}$ to $\vv{w}$ in the plane spanned by them
+Where $\theta$ is the angle going from $\mathbf{v}$ to $\mathbf{w}$ in the plane spanned by them
 (now the order matters),
 and $\hat{n}$ is the normal vector to that plane oriented according to the right hand rule.
 The orientation can be figured out from the formula
@@ -419,24 +423,24 @@ There are a bunch of ways to compute the cross product, though perhaps the easie
 is using algebra.
 First, the cross product is bilinear:
 \[
-( \alpha \vv{v} + \beta \vv{w} ) \times \vv{u}
+( \alpha \mathbf{v} + \beta \mathbf{w} ) \times \mathbf{u}
 =
-\alpha (\vv{v} \times \vv{u}) + \beta (\vv{w} \times \vv{u})
+\alpha (\mathbf{v} \times \mathbf{u}) + \beta (\mathbf{w} \times \mathbf{u})
 \]
 and
 \[
-\vv{u} \times
-( \alpha \vv{v} + \beta \vv{w} )
+\mathbf{u} \times
+( \alpha \mathbf{v} + \beta \mathbf{w} )
 =
-\alpha (\vv{u} \times \vv{v}) + \beta (\vv{u} \times \vv{w}) .
+\alpha (\mathbf{u} \times \mathbf{v}) + \beta (\mathbf{u} \times \mathbf{w}) .
 \]
 It is anti-commutative:
 \[
-\vv{v} \times \vv{w} = - \vv{w} \times \vv{v} .
+\mathbf{v} \times \mathbf{w} = - \mathbf{w} \times \mathbf{v} .
 \]
 Anticommutativity implies
 \[
-\vv{v} \times \vv{v} = \vv{0} .
+\mathbf{v} \times \mathbf{v} = \mathbf{0} .
 \]
 To compute the product, we can use the identities
 \[
@@ -462,7 +466,7 @@ Example:
 =
 3 \veck + 6 ( - \vecj)
 +
-(-\veci) + 2 \vv{0}
+(-\veci) + 2 \mathbf{0}
 =
 -\veci - 6\vecj + 3 \veck .
 \]
@@ -471,10 +475,10 @@ A very important property of the cross product is that it is orthogonal
 to both of the vectors.
 In terms of the dot product:
 \[
-\vv{v} \cdot (\vv{v} \times \vv{w}) = 0 , \qquad
-\vv{w} \cdot (\vv{v} \times \vv{w}) = 0 .
+\mathbf{v} \cdot (\mathbf{v} \times \mathbf{w}) = 0 , \qquad
+\mathbf{w} \cdot (\mathbf{v} \times \mathbf{w}) = 0 .
 \]
-It is a useful easy to compute way to find the orthogonal vector to a plane.
+It is a useful, easy-to-compute way to find the orthogonal vector to a plane.
 For example, as we computed above
 $(3 \veci + \veck) \times (\vecj + 2 \veck)
 =
@@ -506,11 +510,11 @@ Perhaps the correct way to define cross product,
 and also a way to figure out many of its properties from
 the properties of the dot product and
 the determinant is the \emph{triple product}.
-Let $\vv{u} = u_1 \veci + u_2 \vecj + u_3 \veck$,
-$\vv{v} = v_1 \veci + c_2 \vecj + v_3 \veck$, and
-$\vv{w} = w_1 \veci + w_2 \vecj + w_3 \veck$.  Then
+Let $\mathbf{u} = u_1 \veci + u_2 \vecj + u_3 \veck$,
+$\mathbf{v} = v_1 \veci + v_2 \vecj + v_3 \veck$, and
+$\mathbf{w} = w_1 \veci + w_2 \vecj + w_3 \veck$.  Then
 \[
-\vv{u} \cdot ( \vv{v} \times \vv{w} )
+\mathbf{u} \cdot ( \mathbf{v} \times \mathbf{w} )
 =
 \det
 \begin{bmatrix}
@@ -525,15 +529,16 @@ w_1 & w_2 & w_3
 \section{Functions and partial derivatives}
 
 A function is simply an assignment of inputs to some output.
-A real-valued\footnote{By \emph{real} we just mean the real numbers,
+A real-valued\footnote{By \emph{real} we mean the real numbers,
 as opposed to complex numbers, which we will not worry about.}
 function of 3 real variables can be written as
 \[
 w = f(x,y,z) .
 \]
 That is, given numbers $x$, $y$, and $z$, the function $f$ returns the number $f(x,y,z)$.
-For example, the temperature in a room where $x$, $y$, $z$ are some coordinates on the room,
-then the temperature $T(x,y,z)$ is a function.  Sometimes this is called a
+For example, if $x$, $y$, $z$ are some coordinates on our classroom,
+then the temperature $T(x,y,z)$ at any particular point in the room
+is a function.  Sometimes this is called a
 ``scalar function'' or a ``scalar field.''
 
 If we keep $y$ and $z$ fixed, then the assignment that takes $x$ to $f(x,y,z)$ is a
@@ -613,7 +618,7 @@ and therefore as $\Delta A$ goes to zero:
 \sum_j 
 f(x_j,y_j) \Delta A ,
 \]
-For a reasonable function (e.g.\ continuous), this limit exists.
+For a reasonable function (e.g.,\ continuous), this limit exists.
 The sum can be done column-wise or row-wise, in which case we have a
 double sum, and taking the limits, we find that
 \[
@@ -624,7 +629,7 @@ double sum, and taking the limits, we find that
 \int_a^b \int_c^d f(x,y) \, dy \, dx .
 \]
 Notice the units of this quantity.  It is the units of $f$ times the units of $x$ times
-the units of $y$.  So for example if all three are meters, then the unit of $dA$ is $m^2$ and
+the units of $y$.  So for example, if all three are meters, then the unit of $dA$ is $m^2$ and
 the unit of
 $f(x,y) \, dA$
 and therefore of
@@ -666,9 +671,10 @@ Sometimes we might just write
 for simplicity.
 
 We could generalize this further. Given $f(x_1,\ldots,x_n)$ on $\R^n$, we start with
-the $n$ dimensional volume element $dV_n$ or just $dV$, we integrate $f$, and obtain
-$n+1$ dimensional volume ``under the graph.''
-Mathematicians sometimes do not make distinction for $n=1$ and $n=2$, and simply call
+the $n$-dimensional volume element $dV_n$ or just $dV$.
+We integrate $f$ and obtain
+$(n+1)$-dimensional volume ``under the graph.''
+Mathematicians sometimes do not make a distinction for $n=1$ and $n=2$, and simply call
 everything ``volume.''
 So 1-dimensional volume is length, 2-dimensional volume is
 area, etc.
