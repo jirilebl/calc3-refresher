@@ -639,11 +639,15 @@ and therefore of
 $\iint_R f(x,y) \, dA$
 is $\unit{m^3}$ or volume.
 
-For example,
+Let's compute a couple of examples.
+First,
 \[
 \iint_R dA = A(R) = (b-a)(d-c) .
 \]
-Here $A(R)$ is the area of $R$.  Another example:  Let $R = [0,1] \times [0,1]$
+Here $A(R)$ is the area of $R$.
+(Note that the units work out as the 
+the quantity under the integral, $dA$, has units of area.)
+Another example:  Let $R = [0,1] \times [0,1]$
 \[
 \iint_R xy\, dA =
 \int_0^1 \int_0^1 xy \, dx \, dy
@@ -663,31 +667,37 @@ defined on the box $B$,
 \int_e^f \int_c^d \int_a^b f(x,y,z) \, dx \, dy \, dz .
 \]
 All the other orderings of $dx$, $dy$, and $dz$ also work.
-Notice the units.  If all dimensions are in meters, then
+Notice the units.  If all dimensions, including that of $f$, are in meters, then
 the unit of
 $\iiint_B f(x,y,z) \, dV$ is $\unit{m^4}$, or 4-dimensional volume,
 as the unit of $f$ is $\unit{m}$ and the unit of $dV$ is $\unit{m^3}$.
+If on the other hand the units of $f$ are say density $\unitfrac{kg}{m^3}$,
+and the units of $x,y,z$ are all meters,
+then the unit of
+$\iiint_B f(x,y,z) \, dV$ is $\unit{kg}$ as the meters cubed cancel out.
 
-Sometimes we might just write
+Sometimes, for simplicity, we might just write
 \[
+\iint_R f \, dA
+\quad \text{or} \quad
 \iiint_B f \, dV
 \avoidbreak
 \]
-for simplicity.
+for double or triple integrals.
 
-We could generalize this further. Given $f(x_1,\ldots,x_n)$ on $\R^n$, we start with
+We could generalize all this further. Given $f(x_1,\ldots,x_n)$ on $\R^n$, we start with
 the $n$-dimensional volume element $dV_n$ or just $dV$.
 We integrate $f$ and obtain
 $(n+1)$-dimensional volume ``under the graph.''
-Mathematicians sometimes do not make a distinction for $n=1$ and $n=2$, and simply call
+Mathematicians sometimes do not make a distinction for $n=1$ and $n=2$ and simply call
 everything ``volume.''
 So 1-dimensional volume is length, 2-dimensional volume is
 area, etc.
 Mathematicians also often do not use $\iint$ and $\iiint$,
 and so on, and simply use $\int$,
-as we all know in what dimension we are integrating based on the nature of
+as we all know the dimension based on the nature of
 the element $dV$ or $dA$ or the dimension of the
-set we are integrating over.
+set, $R$ or $B$, we are integrating over.
 
 An integral over a region that is not a rectangle
 is achieved by setting the function to zero
@@ -696,7 +706,7 @@ a large rectangle.  It can also be achieved by
 using iterated integrals and
 changing the limits as appropriate.  For example,
 given a triangle $T$ with vertices at $(0,0)$, $(2,0)$,
-and $(2,1)$, let us compute the integral of $x^2y$
+and $(2,1)$, let's compute the integral of $x^2y$
 over $T$.  Describe $T$ as either
 $0 \leq x \leq 2$, $0 \leq y \leq \frac{x}{2}$, or as
 $0 \leq y \leq 1$, $2y \leq x \leq 2$.  Compute
@@ -726,19 +736,19 @@ or
 \]
 Not surprisingly, we got the same answer, of course, since it is the same region.
 
-The integral is additive, that is, if $B$ is the disjoint union of $B_1$ and $B_2$,
+The integral is additive, that is, if $R$ is the disjoint union of $R_1$ and $R_2$,
 then
 \[
-\iint_B f \, dA = 
-\iint_{B_1} f \, dA +
-\iint_{B_2} f \, dA .
+\iint_R f \, dA = 
+\iint_{R_1} f \, dA +
+\iint_{R_2} f \, dA .
 \]
 The integral is also linear, that is, if $\alpha, \beta$ are real numbers and
 $f$ and $g$ are functions, then
 \[
-\iint_B (\alpha f + \beta g) \, dA = 
-\alpha \iint_B f \, dA +
-\beta \iint_B g \, dA .
+\iint_R (\alpha f + \beta g) \, dA = 
+\alpha \iint_R f \, dA +
+\beta \iint_R g \, dA .
 \]
 
 Understanding the development of the integral as a sum is important
@@ -751,7 +761,7 @@ Instead of the sum being an approximation for the integral, the integral can be
 computed to approximate a sum.
 In some sense, this is always the case, as our world is
 really composed of tiny bits rather than continuous unbroken things.
-But adding up a finite but large number of bits tends to be far harder to do than
+Curiously, adding up a finite but large number of bits tends to be far harder to do than
 ``adding up infinitely many,'' that is, integrating.
 A recurring theme in mathematics is that by making a problem more complicated
 (in just the right way), we turn an impossible-to-solve problem
