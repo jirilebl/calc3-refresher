@@ -15,6 +15,7 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{units}
+\usepackage{wrapfig}
 
 \usepackage{tikzsymbols}
 
@@ -129,7 +130,7 @@ We will be using the book:
 
 \noindent
 H.\ M.\ Schey,
-\emph{Div, Grad, Curl, and All That: An Informal Text on Vector Calculus} (Fourth Edition)
+\emph{Div, Grad, Curl, and All That: An Informal Text on Vector Calculus} (4th Edition)
 
 \medskip
 
@@ -169,14 +170,14 @@ Of course, $\R^n$ can be $\R^2$ or $\R^3$, and even $\R = \R^1$, as $n$ can alwa
 1, 2, or 3.
 The coordinates used in calculus are often $x$ for $\R$, $(x,y)$ for $\R^2$, and $(x,y,z)$
 for $\R^3$.
-In $\R^n$ in general, we run out of letters, and so we use something like
-subscripts $(x_1,x_2,\ldots,x_n)$.  Other letters than $x$ are also used.
+In $\R^n$, we run out of letters, and so we use something like
+subscripts $(x_1,x_2,\ldots,x_n)$.  Letters other than $x$ are also used.
 We mostly focus on $\R^3$ (and $\R^2$ to some extent) in this course.
 
 Now that we have points, another object is a \emph{vector}.
 A vector is an object that describes a \emph{direction} and a \emph{magnitude} (its size or length).
-It is simply an arrow in space,
-although it does not really care as to where the arrow starts,
+It is simply an arrow in space that
+does not really care where it starts,
 it only cares about its direction and its magnitude.
 
 To give vectors names, people often use
@@ -187,6 +188,10 @@ On the board, I write $\vec{v}$ although the book uses $\mathbf{v}$
 The book also uses $\hat{\mathbf{v}}$ for unit vectors, that is,
 vectors of magnitude one.
 
+\begin{wrapfigure}{r}{0.9in}
+\vspace*{-0.1in}
+\includegraphics[width=0.9in,page=1]{figures1}
+\end{wrapfigure}
 The best way to think about it is thinking of a moving particle in space.
 A \emph{point} describes the position of a particle,
 while a \emph{vector} describes velocity, that is, the direction the object is traveling, and its speed.
@@ -328,19 +333,19 @@ on $\mathbf{v}$ to \emph{make} it into a unit vector.
 We often use $\hat{\mathbf{v}}$ for a unit vector even if there was no
 $\mathbf{v}$ to begin with.
 
-All of these notions are generalized to $\R^n$ in the obvious manner.
-Higher number of dimensions do occur naturally.
+These notions are generalized to $\R^n$ in the obvious manner.
+Higher dimensions do occur naturally.
 For example, if $t$ is time, then time-space can have the coordinates $(x,y,z,t)$,
-that is $\R^4$.  Similarly, the space of all configurations of two particles in 3-space
+that is $\R^4$.  The space of all configurations of two particles in 3-space
 is really $\R^6$, that is $(x_1,y_1,z_1,x_2,y_2,z_2)$, where
-$(x_1,y_1,z_1)$, is the position of the first particle and $(x_2,y_2,z_2)$ is
+$(x_1,y_1,z_1)$ is the position of the first particle and $(x_2,y_2,z_2)$ is
 the position of the second.
 Similarly, the space of possible
 position-velocity configurations (phase space)
 of a single particle has 6 dimensions
 (3 dimensions for position and 3 for velocity).
 And if we are modeling liquid by pretending it
-is a 1000 particles (liquid, after all,
+is a thousand particles (liquid, after all,
 is a whole bunch of particles),
 then the phase space has dimension 6000.
 
@@ -348,11 +353,8 @@ then the phase space has dimension 6000.
 
 \section{Products of vectors}
 
-We saw one product, that is, the product of a scalar and a vector:
-\[
-\alpha \mathbf{v}.
-\]
-
+We saw one product, that is, the product of a scalar and a vector,
+$\alpha \mathbf{v}$.
 Another type of product is the so-called \emph{dot product}
 \[
 ( a \veci + b \vecj + c \veck ) \cdot
@@ -372,6 +374,10 @@ The dot product can compute the magnitude of a vector:
 \[
 \sabs{\mathbf{v}}^2 = \mathbf{v} \cdot \mathbf{v} .
 \]
+\begin{wrapfigure}[4]{r}{1.0in}
+\vspace*{-0.35in}
+\includegraphics[width=1.0in,page=2]{figures1}
+\end{wrapfigure}
 Geometrically in $\R^2$ or $\R^3$, this product is
 \[
 \mathbf{v} \cdot \mathbf{w} = \sabs{\mathbf{v}} \sabs{\mathbf{w}} \cos \theta ,
@@ -382,7 +388,7 @@ It doesn't matter if you think of the angle
 between $\mathbf{v}$ and $\mathbf{w}$ or vice-versa, as we are taking the cosine here:
 There are two ways you could define the angle depending on which direction you start in,
 but because of the cosine you get the same dot product.
-Two vectors are orthogonal
+Two vectors are \emph{orthogonal}
 (at right angle, perpendicular) if their dot product is zero.
 
 The dot product is bilinear (if something is called a product, usually people want it to be bilinear):
@@ -403,23 +409,27 @@ It is also commutative (not all products are commutative):
 \mathbf{v} \cdot \mathbf{w} = \mathbf{w} \cdot \mathbf{v} .
 \]
 
+\begin{wrapfigure}{r}{1.2in}
+\vspace*{-0.2in}
+\includegraphics[width=1.2in,page=3]{figures1}
+\end{wrapfigure}
 Another type of product, which really only exists in $\R^3$, is the
 \emph{cross product},
 sometimes called the \emph{vector product}.
 This product results in a vector.
 Geometrically
 \[
-\mathbf{v} \times \mathbf{w} = \sabs{\mathbf{v}} \sabs{\mathbf{w}} (\sin \theta) \hat{\mathbf{n}} .
+\mathbf{v} \times \mathbf{w} = \sabs{\mathbf{v}} \sabs{\mathbf{w}} (\sin \theta) \hat{\mathbf{n}} ,
 \]
-Where $\theta$ is the angle going from $\mathbf{v}$ to $\mathbf{w}$ in the plane spanned by them
+where $\theta$ is the angle going from $\mathbf{v}$ to $\mathbf{w}$ in the plane spanned by them
 (now the order matters),
-and $\hat{\mathbf{n}}$ is the normal vector to that plane oriented according to the right hand rule.
+and $\hat{\mathbf{n}}$ is the normal vector to that plane oriented according to the right-hand rule.
 The orientation can be figured out from the formula
 \[
 \veci \times \vecj = \veck .
 \avoidbreak
 \]
-That is, $\veck$ is the normal vector to the $xy$-plane using the right hand rule.
+That is, $\veck$ is the normal vector to the $xy$-plane using the right-hand rule.
 
 There are a bunch of ways to compute the cross product, though perhaps the easiest to remember
 is using algebra.
@@ -451,7 +461,7 @@ To compute the product, we can use the identities
 \veck \times \veci = \vecj .
 \]
 All three identities list $\veci$, $\vecj$, $\veck$ in the same order.
-If you go in the opposite order you get a minus sign:
+If you go in the opposite order, you get a minus sign:
 \[
 \vecj \times \veci = -\veck , \qquad
 \veck \times \vecj = -\veci , \qquad
@@ -480,7 +490,7 @@ In terms of the dot product:
 \mathbf{v} \cdot (\mathbf{v} \times \mathbf{w}) = 0 , \qquad
 \mathbf{w} \cdot (\mathbf{v} \times \mathbf{w}) = 0 .
 \]
-It is a useful, easy-to-compute way to find the orthogonal vector to a plane.
+It is a useful, easy-to-compute way to find a vector orthogonal to a plane.
 For example, as we computed above
 $(3 \veci + \veck) \times (\vecj + 2 \veck)
 =
@@ -540,7 +550,7 @@ w = f(x,y,z) .
 That is, given numbers $x$, $y$, and $z$, the function $f$ returns the number $f(x,y,z)$.
 For example, if $x$, $y$, $z$ are some coordinates on our classroom,
 then the temperature $T(x,y,z)$ at any particular point in the room
-is a function.  Sometimes this is called a
+is a function.  Sometimes, a scalar-valued function is called a
 ``scalar function'' or a ``scalar field.''
 
 If we keep $y$ and $z$ fixed, then the assignment that takes $x$ to $f(x,y,z)$ is a
@@ -551,7 +561,7 @@ written $\frac{\partial f}{\partial x}$.  That is,
 \frac{\partial f}{\partial x}(x,y,z) =
 \lim_{h\to 0} \frac{f(x+h,y,z)-f(x,y,z)}{h} .
 \]
-Similarly we define
+Similarly, we define
 $\frac{\partial f}{\partial y}$,
 $\frac{\partial f}{\partial z}$ and so on.  These partial derivatives are again
 functions of $\R^3$.
@@ -584,8 +594,12 @@ if $f(x_1,x_2,x_3,x_4) = x_1^2x_2x_3 + x_2 x_4$, then
 \frac{\partial f}{\partial x_2}(x_1,x_2,x_3,x_4) = x_1^2 x_3 + x_4 .
 \]
 
-\section{Multiple integrals}
+\section{Multidimensional integrals}
 
+\begin{wrapfigure}[6]{r}{1.2in}
+\vspace*{-0.4in}
+\includegraphics[width=1.2in,page=4]{figures1}
+\end{wrapfigure}
 In the plane, the area of a small rectangle with sides $\Delta x$ and $\Delta y$
 is $\Delta A = \Delta x \Delta y$.
 If we build a box of height $c$ above
@@ -597,7 +611,7 @@ That is, $R$ is all the points
 $(x,y)$ such that $a \leq x \leq b$ and $c \leq y \leq d$,
 and for every $(x,y)$ in $R$ we have a value $f(x,y)$.
 We divide $R$ into a bunch of rectangles of area $\Delta A = \Delta x \Delta y$.
-In each of these rectangles we pick a point $(x_j,y_j)$ and then
+In each of these rectangles, we pick a point $(x_j,y_j)$.  Then
 \[
 f(x_j,y_j) \Delta A
 \]
@@ -606,9 +620,10 @@ rectangle.
 We sum all these approximations
 \[
 \sum_j 
-f(x_j,y_j) \Delta A ,
+f(x_j,y_j) \Delta A .
 \]
-which is a reasonable approximation for the volume under the graph of $f$ above the rectangle
+This sum is
+a reasonable approximation for the volume under the graph of $f$ above the rectangle
 $R$.
 The double integral of $f$ over $R$ is the limit of
 this expression
@@ -621,8 +636,9 @@ and therefore as $\Delta A$ goes to zero:
 f(x_j,y_j) \Delta A ,
 \]
 For a reasonable function (e.g.,\ continuous), this limit exists.
-The sum can be done column-wise or row-wise, in which case we have a
-double sum, and taking the limits, we find that
+The sum can be done column-wise or row-wise, resulting in a
+double sum (first over rows and then over columns or vice-versa).
+Taking the limits, we find that
 \[
 \iint_R f(x,y) \, dA
 =
@@ -659,8 +675,9 @@ Another example:  Let $R = [0,1] \times [0,1]$
 Similarly in $\R^3$, a little box of sides $\Delta x$, $\Delta y$, and $\Delta z$
 is of volume $\Delta V = \Delta x \Delta y \Delta z$.  
 Let $B = [a,b] \times [c,d] \times [e,f]$ be a box.
-We follow the same procedure above to find for a function $f(x,y,z)$
-defined on the box $B$,
+Given a function $f(x,y,z)$
+defined on the box $B$, we follow
+the same procedure as above to find the integral
 \[
 \iiint_B f(x,y,z) \, dV
 =
@@ -736,14 +753,14 @@ or
 \]
 Not surprisingly, we got the same answer, of course, since it is the same region.
 
-The integral is additive, that is, if $R$ is the disjoint union of $R_1$ and $R_2$,
+The integral is \emph{additive}, that is, if $R$ is the disjoint union of $R_1$ and $R_2$,
 then
 \[
 \iint_R f \, dA = 
 \iint_{R_1} f \, dA +
 \iint_{R_2} f \, dA .
 \]
-The integral is also linear, that is, if $\alpha, \beta$ are real numbers and
+The integral is also \emph{linear}, that is, if $\alpha, \beta$ are real numbers and
 $f$ and $g$ are functions, then
 \[
 \iint_R (\alpha f + \beta g) \, dA = 
